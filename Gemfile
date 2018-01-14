@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
-
+gem 'ruby' '2.3.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: [:development, :test]
 gem 'pg', group: :production
+gem 'rails_12factor', group: :production
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -52,3 +53,8 @@ end
 gem 'anemone', '~> 0.7.2'
 gem 'poltergeist' # phantomjsが必要 "npm install phantomjs"でインストールした
 gem 'capybara', '~> 2.8.1'
+
+group :production do
+  gem 'unicorn'
+  gem 'unicorn-worker-killer' # production環境のUnicornのリサイクル
+end
